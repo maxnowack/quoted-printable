@@ -67,6 +67,7 @@
 		var lineIndex = -1;
 		var lineCount = lines.length;
 		var result = [];
+		var buffer;
 		while (++lineIndex < lineCount) {
 			var line = lines[lineIndex];
 			// Leave room for the trailing `=` for soft line breaks.
@@ -74,7 +75,7 @@
 			var index = 0;
 			var length = line.length;
 			while (index < length) {
-				var buffer = encoded.slice(index, index + LINE_LENGTH);
+				buffer = encoded.slice(index, index + LINE_LENGTH);
 				// If this line ends with `=`, optionally followed by a single uppercase
 				// hexadecimal digit, we broke an escape sequence in half. Fix it by
 				// moving these characters to the next line.
